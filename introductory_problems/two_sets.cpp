@@ -6,6 +6,8 @@ int main(){
 	// https://cses.fi/problemset/task/1092
 	// https://cses.fi/problemset/result/11307075/ 
 	// this solution isn't accepted, it is logically correct, it partitions n numbers into two sets with equal sum
+	// for printing YES; 
+	// https://cses.fi/problemset/result/11308004/
 	ll n;
 	cin>>n;
 
@@ -14,6 +16,7 @@ int main(){
 	if(k&1){
 		cout<<"NO";
 	} else {
+		cout<<"YES\n";
 		k = k/2ll;
 		// to get the group size
 		ll c = 0, t = k, p = n;
