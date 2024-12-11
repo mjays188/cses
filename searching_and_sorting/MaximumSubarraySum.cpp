@@ -5,6 +5,7 @@ typedef long long ll;
 int main(){
 	// https://cses.fi/problemset/task/1643
 	// https://cses.fi/problemset/result/11391397/
+	// https://cses.fi/problemset/result/11391505/
 	ll n;
 	cin>>n;
 	vector<ll> v;
@@ -15,12 +16,13 @@ int main(){
 	}
 	
 	vector<ll> mx(n, INT_MIN);
-	ll bmx = 0;
-	for(ll i=0;i<n;i++){
-		bmx+=v[i];
-		mx[i] = max(bmx, mx[i]);
-		if(bmx < 0)
-			bmx = 0;
+	mx[0] = v[0];
+	for(ll i=1;i<n;i++){
+		if(mx[i-1] < 0)
+			mx[i] = v[i];
+		else
+			mx[i] = v[i]+mx[i-1];
+		//mx[i] = max(0ll, v[i]+mx[i-1]);
 	}
 	ll ans = *max_element(mx.begin(), mx.end());
 	cout<<ans;
